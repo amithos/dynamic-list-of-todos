@@ -103,12 +103,11 @@ const todoType = PropTypes.shape({
   userId: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired,
+  completed: PropTypes.bool,
 });
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(todoType).isRequired,
   selectUser: PropTypes.func.isRequired,
   selectedUserId: PropTypes.number.isRequired,
-
 };

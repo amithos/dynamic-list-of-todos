@@ -13,8 +13,9 @@ class App extends React.Component {
 
   componentDidMount() {
     getTodos()
-      .then(({ data }) => this.setState({
-        todos: data,
+      .then(({ data }) => data.filter(todo => todo.userId && todo.title))
+      .then(todos => this.setState({
+        todos,
       }));
   }
 
