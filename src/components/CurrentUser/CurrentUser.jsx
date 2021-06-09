@@ -29,7 +29,7 @@ export class CurrentUser extends React.Component {
     const { user } = this.state;
 
     if (!user) {
-      return <></>;
+      return "Loading...";
     }
 
     const { resetSelectedUser } = this.props;

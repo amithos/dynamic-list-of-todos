@@ -53,7 +53,6 @@ export class TodoList extends React.Component {
           value={selectFilter}
           onChange={handlerInput}
         >
-          <option value="0">Choose filter, please</option>
           <option value="all">all</option>
           <option value="active">active</option>
           <option value="completed">comleted</option>
@@ -65,20 +64,16 @@ export class TodoList extends React.Component {
             {todos.map(({ id, title, userId, completed }) => (
               <li
                 key={id}
-                // className={completed
-                //   ? 'TodoList__item TodoList__item--checked'
-                //   : 'TodoList__item TodoList__item--unchecked'
-                // }
                 className={classNames({
                   'TodoList__item TodoList__item--checked': completed,
-                  'TodoList__item TodoList__item--unchecked': !completed, 
+                  'TodoList__item TodoList__item--unchecked': !completed,
                 })}
               >
                 <label>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     checked={completed}
-                    readOnly 
+                    readOnly
                   />
                   <p>{title}</p>
                 </label>
