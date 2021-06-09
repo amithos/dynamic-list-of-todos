@@ -20,8 +20,8 @@ export class CurrentUser extends React.Component {
 
   loadUser() {
     getUserById(this.props.userId)
-      .then(({ data }) => this.setState({
-        user: data,
+      .then(user => this.setState({
+        user,
       }));
   }
 

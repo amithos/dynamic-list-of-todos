@@ -22,19 +22,16 @@ export class TodoList extends React.Component {
     const { handlerInput } = this;
 
     if (searchField) {
-      todos = todos.filter(todo => todo.title !== null
-        && todo.title.includes(searchField));
+      todos = todos.filter(todo => todo.title.includes(searchField));
     }
 
     switch (selectFilter) {
       case 'active':
         todos = todos.filter(todo => todo.completed === false);
         break;
-
       case 'completed':
         todos = todos.filter(todo => todo.completed);
         break;
-
       default:
         break;
     }
@@ -68,13 +65,21 @@ export class TodoList extends React.Component {
             {todos.map(({ id, title, userId, completed }) => (
               <li
                 key={id}
-                className={completed
-                  ? 'TodoList__item TodoList__item--checked'
-                  : 'TodoList__item TodoList__item--unchecked'
-                  }
+                // className={completed
+                //   ? 'TodoList__item TodoList__item--checked'
+                //   : 'TodoList__item TodoList__item--unchecked'
+                // }
+                className={classNames({
+                  'TodoList__item TodoList__item--checked': completed,
+                  'TodoList__item TodoList__item--unchecked': !completed, 
+                })}
               >
                 <label>
-                  <input type="checkbox" readOnly />
+                  <input 
+                    type="checkbox" 
+                    checked={completed}
+                    readOnly 
+                  />
                   <p>{title}</p>
                 </label>
 
